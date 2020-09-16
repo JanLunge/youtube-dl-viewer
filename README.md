@@ -28,9 +28,7 @@ mkdir -p /static/v
 # add a video
 this downloads a video to the downloads folder inside content and then moves the json into the content folder for videos and the video file into the static serving folder
 ```
-youtube-dl https://www.youtube.com/watch?v=y7AKKqb8Wrs --write-info-json --write-thumbnail -o 'content/downloads/f%(format_id)s.%(ext)s'
-mv content/downloads/*.json content/videos/
-mv content/downloads/* static/v/
+youtube-dl https://www.youtube.com/watch?v=y7AKKqb8Wrs --format mp4 --write-info-json --write-thumbnail -o 'content/downloads/f%(format_id)s.%(ext)s' && mv content/downloads/*.json content/videos/ && mv content/downloads/* static/v/
 ```
 
 # generate static pages
