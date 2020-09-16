@@ -28,14 +28,7 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  },
   async asyncData (context) {
     console.log(context)
     const page = await context.$content("videos/"+context.params.video).fetch()
