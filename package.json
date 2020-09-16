@@ -1,0 +1,21 @@
+{
+  "name": "youtube-dl-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate"
+  },
+  "dependencies": {
+    "@nuxt/content": "^1.9.0",
+    "@nuxt/typescript-runtime": "^1.0.0",
+    "nuxt": "^2.14.0"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.14.0",
+    "@nuxt/typescript-build": "^2.0.2",
+    "@nuxtjs/vuetify": "^1.11.2"
+  }
+}
