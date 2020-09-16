@@ -1,5 +1,7 @@
 # youtube-dl-viewer
 
+![screenshot](https://github.com/wlard/youtube-dl-viewer/blob/master/screenshots/01.png?raw=true)
+
 ## Build Setup
 
 ```bash
