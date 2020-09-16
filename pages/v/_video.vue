@@ -27,12 +27,12 @@
   </v-layout>
 </template>
 
-<script>
-export default {
-  async asyncData (context) {
-    console.log(context)
+<script lang="ts">
+import { Vue, Component, Watch } from 'nuxt-property-decorator'
+@Component({})
+export default class VideoDetail extends Vue{
+  async asyncData (context:any) {
     const page = await context.$content("videos/"+context.params.video).fetch()
-
     return {
       page
     }

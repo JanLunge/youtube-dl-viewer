@@ -84,6 +84,15 @@ export default {
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
-  build: {
+ build: {
+  babel: {
+    presets({ isServer }) {
+      return [
+        [
+          "@nuxt/babel-preset-app", { loose: true }
+        ]
+      ]
+    }
   }
+}
 }

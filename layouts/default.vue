@@ -5,9 +5,7 @@
       fixed
       app
     >
-
       <v-toolbar-title class="title" v-text="title" @click="$router.push('/')" />
-   
     </v-app-bar>
     <v-main>
       <v-container>
@@ -18,14 +16,13 @@
   </v-app>
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-      clipped: false,
-      title: 'Youtube-dl-viewer'
-    }
-  }
+<script lang="ts">
+import { Vue, Component, Watch } from 'nuxt-property-decorator'
+@Component({})
+export default class DefaultLayout extends Vue{
+  clipped = false
+  title = 'Youtube-dl-viewer'
+   
 }
 </script>
 <style lang="scss" scoped>
