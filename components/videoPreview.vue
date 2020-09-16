@@ -1,6 +1,6 @@
 <template>
   <v-card class="ma-4 video">
-    <div @click="goToVideo(video)">
+    <div @click="goToVideo">
       <v-img :width="320" :src="thumbnailSrc" />
       <div v-if="video" class="description pa-4">
         <p class="font-weight-bold">{{ video.title }}</p>
@@ -19,8 +19,13 @@ import { videoType } from '~/types'
 @Component({})
 export default class VideoPreview extends Vue {
   @Prop({ type: Object, required: true }) video!: videoType
-  goToVideo(video: videoType) {
-    this.$router.push('/v/' + video.path.split('/')[2])
+
+  goToVideo() {
+    this.$router.push(`/v/${btoa(this.filename)}/${this.video.title}`)
+  }
+
+  get filename() {
+    return this.video.path.split('/')[2]
   }
 
   get thumbnailSrc() {
@@ -28,10 +33,14 @@ export default class VideoPreview extends Vue {
     const lastThumbnail = this.video.thumbnails[
       this.video.thumbnails.length - 1
     ]
-    const fileExt = lastThumbnail.url
+    let fileExt = ''
+    const fileExtRegex = lastThumbnail.url
       .split('/')
-      [lastThumbnail.url.split('/').length - 1].split('.')[1]
-    return '/v/' + this.video.path.split('/')[2].split('.')[0] + '.' + fileExt
+      [lastThumbnail.url.split('/').length - 1].match(/\.([^/.]+)$/)
+    if (fileExtRegex && fileExtRegex.length > 1) fileExt = fileExtRegex[1]
+    return `/v/${this.video.path
+      .split('/')[2]
+      .replace(/\.[^/.]+$/, '')}.${fileExt}`
   }
 
   get uploadDate() {
